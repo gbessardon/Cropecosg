@@ -1,0 +1,6 @@
+&inputs
+    infile = '/data/gbessardon/ECOCLIMAP-SG/LAI/300M/LAI_0105_c.dir'
+    outfile = '/data/gbessardon/Crop_ecosg/All_in_one/Uncompressed_LAI/LAI_0105_c.dir'
+    ncol = 43200
+    nlin = 16800
+/

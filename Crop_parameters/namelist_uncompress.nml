@@ -1,0 +1,6 @@
+&inputs
+    infile = '/data/gbessardon/ECOCLIMAP-SG/AVS/AVS_DESAG_0715.dir'
+    outfile = '/data/gbessardon/Crop_ecosg/Uncompressed_LAI/AVS_DESAG_0715.dir'
+    ncol = 43200
+    nlin = 16800
+/

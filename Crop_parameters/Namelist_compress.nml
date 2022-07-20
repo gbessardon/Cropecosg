@@ -1,0 +1,8 @@
+&inputs
+    coverfile = '/data/gbessardon/ECOCLIMAP-SG/COVER/ecosg_final_map.dir'
+    infile = '/data/gbessardon/Crop_ecosg/Cropped_AVS/AVS_DESAG_0715.dir'
+    outfile = '/data/gbessardon/Crop_ecosg/Crop_parameters/test.dir'
+    compressed_file = '/data/gbessardon/Crop_ecosg/Cropped_compressed_files_AVS/AVS_DESAG_0715.dir'
+    ncol = 21600
+    nlin = 16800
+/

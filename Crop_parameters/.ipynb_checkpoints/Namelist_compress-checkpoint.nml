@@ -1,0 +1,8 @@
+&inputs
+    coverfile = '/data/gbessardon/ECOCLIMAP-SG/COVER/ecosg_final_map.dir'
+    infile = '/data/gbessardon/Crop_ecosg/Cropped_dir/LAI_0905_c.dir'
+    outfile = 'test.dir'
+    compressed_file = '/data/gbessardon/Crop_ecosg/Cropped_compressed_files/LAI_0905_c.dir'
+    ncol = 21600
+    nlin = 16800
+/
