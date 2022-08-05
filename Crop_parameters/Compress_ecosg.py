@@ -33,7 +33,7 @@ def Createoutputdir(outputdir):
 # In[4]:
 
 
-def create_ecosghdr(fnhdr,outfn):
+def create_ecosghdr(fnhdr,outfn,dictoriginal):
     #NAMELISTpath=os.path.join(os.getcwd(),'Namelist.nml')
     #nml = f90nml.read(NAMELISTpath)
     f=open(fnhdr,'r')
@@ -60,6 +60,7 @@ def create_ecosghdr(fnhdr,outfn):
     dictp['south']=str(float(dictuncompress['ULYMAP'])-(float(dictuncompress['NROWS'])*float(dictuncompress['YDIM'])))
     dictp['west']=dictuncompress['ULXMAP']
     dictp['east']=str(float(dictuncompress['ULXMAP'])+(float(dictuncompress['NCOLS'])*float(dictuncompress['XDIM'])))
+    dictp['fact']=dictoriginal['fact']
     with open(outfn,'w+') as f:
         for i,v in dictp.items():
             f.write(i+': '+v+'\n')
@@ -241,14 +242,15 @@ def make_new_val0(windowc,GCD,srccover,srclai,mosaicfile='test.dir'):
 # In[10]:
 
 
-def Compressfile(output_ending,fn,fncoverlink):
+def Compressfile(output_ending,fn,fncoverlink,dictoriginal):
     functions_path=os.path.join(os.getcwd(),'Crop_parameters')
     # Creates the output directory
     outpath=Createoutputdir(output_ending)
     # Creates output file path
     outdirfn=os.path.join(outpath,fn.split('/')[-1])
     # Creates the hdr python readble file and extact info
-    (dictlaialb,dictuncompress)=create_ecosghdr(fn.replace('.dir','.hdr'),outdirfn.replace('.dir','.hdr'))
+    (dictlaialb,dictuncompress)=create_ecosghdr(fn.replace('.dir','.hdr'),outdirfn.replace('.dir','.hdr'),
+                                                dictoriginal)
     # Read and rewrite the Namelist to 
     NAMELISTpath=os.path.join(os.getcwd(),'Crop_parameters','Namelist_compress.nml')
     nml = f90nml.read(NAMELISTpath)

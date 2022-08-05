@@ -65,4 +65,4 @@ def Uncompressfile(output_ending,fn):
     cmd3='(cd '+functions_path+' ; ./uncompresscompiling.out)'
     #'sh'+functions_path+'/uncompresscompiling.out'
     subprocess.run(cmd3,shell=True)
-    return(outdirfn)
+    return(outdirfn,dictecosg)

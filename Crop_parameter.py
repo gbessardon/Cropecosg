@@ -32,15 +32,15 @@ import Compress_ecosg
 # In[4]:
 
 
-input_directory='/data/gbessardon/ECOCLIMAP-SG/LAI/300M'
+input_directory='/data/gbessardon/ECOCLIMAP-SG/ANS'
 input_ecosgcoverpath='/data/gbessardon/ECOCLIMAP-SG/COVER/ecosg_final_map.dir'
-Uncompress_dir='Uncompressed_small_lai' 
+Uncompress_dir='Uncompressed_small_ans' 
 xmin=-35
 xmax=15
 ymin=20
 ymax=60
-Crop_dir='Cropped_small_LAI'
-output_dir='Cropped_compressed_small_LAI'
+Crop_dir='Cropped_small_ANS'
+output_dir='Cropped_compressed_small_ANS'
 
 
 # # Function that uncompress crop then recompress a LAI or albedo file
@@ -50,12 +50,12 @@ output_dir='Cropped_compressed_small_LAI'
 
 def alltogether(fn,fncoverlink,output_dir,xmin,xmax,ymin,ymax,
                 Uncompress_dir='Uncompressed_LAI',Cropped_dir='Cropped_dir'):
-        Uncompress.Uncompressfile(Uncompress_dir,fn)
+        _,dictoriginal=Uncompress.Uncompressfile(Uncompress_dir,fn)
         Ucfn=os.path.join(os.getcwd(),Uncompress_dir,fn.split('/')[-1])
         Crop_parameters.Crop_data_rasterio(Ucfn,Crop_dir,xmin, ymin, xmax, ymax)
         os.remove(Ucfn)
         Croppedfn=os.path.join(os.getcwd(),Crop_dir,fn.split('/')[-1])
-        Compress_ecosg.Compressfile(output_dir,Croppedfn,fncoverlink)
+        Compress_ecosg.Compressfile(output_dir,Croppedfn,fncoverlink,dictoriginal)
         os.remove(Croppedfn)
         outputfn=os.path.join(os.getcwd(),output_dir,fn.split('/')[-1])
         return(outputfn)
